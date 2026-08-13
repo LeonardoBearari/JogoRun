@@ -2,6 +2,8 @@
 {
     static void Main()
     {
+
+
         //Thread keyThread = new Thread(ListenerForKeys);
         Console.WriteLine("IFSP");
         var posicao = "Left";
