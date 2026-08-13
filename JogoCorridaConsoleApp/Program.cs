@@ -14,6 +14,7 @@ class Program
         jogo.Carro.PosicaoX = jogo.PosicionaObjeto(1);
         jogo.Velocidade = 10;
         var tempoUltimaMocimentaca = DateTime.Now;
+
         
         for (; ; )
         {

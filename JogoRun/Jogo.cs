@@ -12,6 +12,7 @@
         public int Faixa1Inicio { get; set; }
         public int Faixa1Fim {  get; set; }
         public int Faixa2Inicio { get; set; }
+
         public int Faixa2Fim { get; set; }
         public int YMaximo { get; set; }
 
