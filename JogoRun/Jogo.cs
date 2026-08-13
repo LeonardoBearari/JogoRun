@@ -13,14 +13,14 @@
         public int Faixa1Fim {  get; set; }
         public int Faixa2Inicio { get; set; }
         public int Faixa2Fim { get; set; }
-        public int YMaximo { get; set; } = 50;
+        public int YMaximo { get; set; }
 
         public void IniciaJogo()
         {
             Carro = new Elemento ();
             Carro.Tipo = TipoElemento.Carro;
             Carro.PosicaoX = PosicionaObjeto(1);
-            Carro.PosicaoY = YMaximo - 10;
+            Carro.PosicaoY = YMaximo - 1;
 
             Obstaculos = FabricaObstaculos(3, 10, 50);
         }
@@ -38,9 +38,10 @@
                 }
                 var ob = new Elemento ();
                 ob.Tipo = TipoElemento.Obstaculo;
-                var faixa = rnd.Next(1,2);
+                var faixa = rnd.Next(1,3);
                 ob.PosicaoX = PosicionaObjeto(faixa);
                 ob.PosicaoY = y_inicial;
+                obstaculos.Add(ob);
             }
             return obstaculos;
         }
@@ -76,7 +77,7 @@
             foreach (var ob in Obstaculos)
             {
                 if (ChecaFaixaElemento(Carro) == ChecaFaixaElemento(ob)){
-                    if (Math.Abs(Carro.PosicaoY - ob.PosicaoY) <= 10)
+                    if (Math.Abs(Carro.PosicaoY - ob.PosicaoY) == 0)
                     {
                         return true;
                     }
@@ -88,5 +89,18 @@
         public bool VerificaFimJogo(){
             return true;
         }
+
+        public void MovimentaObstaculos()
+        {
+            foreach (var ob in Obstaculos)
+            {
+                ob.PosicaoY++;
+                if (ob.PosicaoY > YMaximo)
+                {
+                    ob.PosicaoY = 0;
+                }
+            }
+        }
+
     }
 }

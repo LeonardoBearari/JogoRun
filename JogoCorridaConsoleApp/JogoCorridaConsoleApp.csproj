@@ -11,4 +11,8 @@
     <Compile Include="D:\LeonardoBS\POE\Program.cs" Link="Program.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\JogoRun\JogoRun.csproj" />
+  </ItemGroup>
+
 </Project>
