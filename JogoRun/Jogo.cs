@@ -21,9 +21,9 @@
             Carro = new Elemento ();
             Carro.Tipo = TipoElemento.Carro;
             Carro.PosicaoX = PosicionaObjeto(1);
-            Carro.PosicaoY = YMaximo - 1;
+            Carro.PosicaoY = YMaximo - 100;
 
-            Obstaculos = FabricaObstaculos(3, 10, 50);
+            Obstaculos = FabricaObstaculos(4, 20, 50);
         }
         public List<Elemento> FabricaObstaculos(int qtd, int dmin, int dmax)
         {
