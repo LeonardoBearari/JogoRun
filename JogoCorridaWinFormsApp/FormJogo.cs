@@ -1,4 +1,5 @@
 using JogoRun;
+using System.Media;
 
 namespace JogoCorridaWinFormsApp
 
@@ -9,9 +10,10 @@ namespace JogoCorridaWinFormsApp
         DateTime tempoUltimaMocimentaca = DateTime.Now;
         List<PictureBox> pictureBoxes = [];
 
-        public FormJogo()
+        public FormJogo(string Nivel)
         {
             InitializeComponent();
+            TocarSomCorrida();
             jogo = new Jogo
             {
                 Faixa1Inicio = 2,
@@ -22,7 +24,17 @@ namespace JogoCorridaWinFormsApp
             jogo.YMaximo = 550;
             jogo.IniciaJogo();
             jogo.Carro.PosicaoX = jogo.PosicionaObjeto(1);
-            jogo.Velocidade = 20;
+            if (Nivel == "Fácil")
+            {
+                jogo.Velocidade = 200;
+            }
+            else if(Nivel == "Médio"){
+                jogo.Velocidade= 100;
+            }
+            else
+            {
+                jogo.Velocidade = 50;
+            }
 
             foreach (var ob in jogo.Obstaculos)
             {
@@ -58,10 +70,30 @@ namespace JogoCorridaWinFormsApp
             if (jogo.ChecarColisao())
             {
 
-
+                TocarSomBatida();
                 Application.Exit();
             }
-            Thread.Sleep(100);
+            Application.DoEvents();
+        }
+
+        private void GameOver()
+        {
+
+        }
+
+        private void TocarSomCorrida()
+        {
+            SoundPlayer sp = new SoundPlayer();
+            sp.SoundLocation = "D:\\LeonardoBS\\POE\\fundo.wav";
+            sp.PlayLooping();
+        }
+
+        private void TocarSomBatida()
+        {
+            SoundPlayer sp = new SoundPlayer();
+            sp.SoundLocation = "D:\\LeonardoBS\\POE\\explode1_5uz7VYc.wav";
+            sp.Play();
+            Thread.Sleep(1000);
         }
 
         private void FormJogo_KeyDown(object sender, KeyEventArgs e)

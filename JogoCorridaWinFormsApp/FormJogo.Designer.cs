@@ -41,9 +41,9 @@
             // 
             picCarro.BackColor = Color.Transparent;
             picCarro.BackgroundImage = (Image)resources.GetObject("picCarro.BackgroundImage");
-            picCarro.Location = new Point(401, 304);
+            picCarro.Location = new Point(417, 363);
             picCarro.Name = "picCarro";
-            picCarro.Size = new Size(425, 351);
+            picCarro.Size = new Size(430, 518);
             picCarro.TabIndex = 0;
             picCarro.TabStop = false;
             // 
@@ -60,7 +60,6 @@
             // 
             // TimerJogo
             // 
-            TimerJogo.Interval = 200;
             TimerJogo.Tick += TimerJogo_Tick;
             // 
             // FormJogo
