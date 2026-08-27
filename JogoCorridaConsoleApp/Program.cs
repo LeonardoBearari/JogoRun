@@ -5,7 +5,7 @@ class Program
     static void Main()
     {
         Jogo jogo = new Jogo();
-        jogo.Faixa1Inicio = 1;
+        jogo.Faixa1Inicio = 2;
         jogo.Faixa1Fim = 11;
         jogo.Faixa2Inicio = 13;
         jogo.Faixa2Fim = 22;

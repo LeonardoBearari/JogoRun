@@ -17,11 +17,11 @@ namespace JogoCorridaWinFormsApp
             jogo = new Jogo
             {
                 Faixa1Inicio = 2,
-                Faixa1Fim = 198,
-                Faixa2Inicio = 202,
-                Faixa2Fim = 398
+                Faixa1Fim = 396,
+                Faixa2Inicio = 404,
+                Faixa2Fim = 857
             };
-            jogo.YMaximo = 550;
+            jogo.YMaximo = 900;
             jogo.IniciaJogo();
             jogo.Carro.PosicaoX = jogo.PosicionaObjeto(1);
             if (Nivel == "Fácil")

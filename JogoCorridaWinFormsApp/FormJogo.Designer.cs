@@ -41,10 +41,9 @@
             // 
             picCarro.BackColor = Color.Transparent;
             picCarro.BackgroundImage = (Image)resources.GetObject("picCarro.BackgroundImage");
-            picCarro.Location = new Point(549, 465);
+            picCarro.Location = new Point(173, 574);
             picCarro.Name = "picCarro";
             picCarro.Size = new Size(82, 201);
-            picCarro.SizeMode = PictureBoxSizeMode.StretchImage;
             picCarro.TabIndex = 0;
             picCarro.TabStop = false;
             // 
