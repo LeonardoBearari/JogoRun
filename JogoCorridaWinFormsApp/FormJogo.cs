@@ -26,14 +26,14 @@ namespace JogoCorridaWinFormsApp
             jogo.Carro.PosicaoX = jogo.PosicionaObjeto(1);
             if (Nivel == "Fácil")
             {
-                jogo.Velocidade = 200;
+                jogo.Velocidade = 100;
             }
             else if(Nivel == "Médio"){
-                jogo.Velocidade= 100;
+                jogo.Velocidade= 50;
             }
             else
             {
-                jogo.Velocidade = 50;
+                jogo.Velocidade = 25;
             }
 
             foreach (var ob in jogo.Obstaculos)
@@ -69,16 +69,16 @@ namespace JogoCorridaWinFormsApp
             }
             if (jogo.ChecarColisao())
             {
-
-                TocarSomBatida();
-                Application.Exit();
+                GameOver();
             }
             Application.DoEvents();
         }
 
         private void GameOver()
         {
-
+            TimerJogo.Enabled= false;
+            TocarSomBatida();
+            Close();
         }
 
         private void TocarSomCorrida()

@@ -12,7 +12,7 @@ class Program
         jogo.YMaximo = 11;
         jogo.IniciaJogo();
         jogo.Carro.PosicaoX = jogo.PosicionaObjeto(1);
-        jogo.Velocidade = 10;
+        
         var tempoUltimaMocimentaca = DateTime.Now;
 
         

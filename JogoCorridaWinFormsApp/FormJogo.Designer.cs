@@ -41,25 +41,27 @@
             // 
             picCarro.BackColor = Color.Transparent;
             picCarro.BackgroundImage = (Image)resources.GetObject("picCarro.BackgroundImage");
-            picCarro.Location = new Point(417, 363);
+            picCarro.Location = new Point(549, 465);
             picCarro.Name = "picCarro";
-            picCarro.Size = new Size(430, 518);
+            picCarro.Size = new Size(82, 201);
+            picCarro.SizeMode = PictureBoxSizeMode.StretchImage;
             picCarro.TabIndex = 0;
             picCarro.TabStop = false;
             // 
             // picObstaculo
             // 
             picObstaculo.BackColor = Color.Transparent;
-            picObstaculo.BackgroundImage = Properties.Resources.obstaculo;
-            picObstaculo.Image = Properties.Resources.obstaculo;
-            picObstaculo.Location = new Point(60, 12);
+            picObstaculo.BackgroundImage = (Image)resources.GetObject("picObstaculo.BackgroundImage");
+            picObstaculo.Location = new Point(74, 25);
             picObstaculo.Name = "picObstaculo";
-            picObstaculo.Size = new Size(215, 127);
+            picObstaculo.Size = new Size(94, 91);
+            picObstaculo.SizeMode = PictureBoxSizeMode.StretchImage;
             picObstaculo.TabIndex = 1;
             picObstaculo.TabStop = false;
             // 
             // TimerJogo
             // 
+            TimerJogo.Interval = 50;
             TimerJogo.Tick += TimerJogo_Tick;
             // 
             // FormJogo
