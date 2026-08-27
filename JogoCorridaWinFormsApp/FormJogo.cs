@@ -12,6 +12,7 @@ namespace JogoCorridaWinFormsApp
 
         public FormJogo(string Nivel)
         {
+            DoubleBuffered = true;
             InitializeComponent();
             TocarSomCorrida();
             jogo = new Jogo
@@ -21,7 +22,7 @@ namespace JogoCorridaWinFormsApp
                 Faixa2Inicio = 404,
                 Faixa2Fim = 857
             };
-            jogo.YMaximo = 900;
+            jogo.YMaximo = 880;
             jogo.IniciaJogo();
             jogo.Carro.PosicaoX = jogo.PosicionaObjeto(1);
             if (Nivel == "Fácil")
