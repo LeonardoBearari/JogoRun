@@ -79,7 +79,7 @@
             lblPontuacao.ForeColor = Color.White;
             lblPontuacao.Font = new Font("Arial", 14, FontStyle.Bold);
             lblPontuacao.TextAlign = ContentAlignment.MiddleRight;
-            lblPontuacao.Location = new Point(659, 15);   // canto superior direito, com margem
+            lblPontuacao.Location = new Point(659, 15);   
             lblPontuacao.Size = new Size(180, 30);
             lblPontuacao.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblPontuacao.Name = "lblPontuacao";
