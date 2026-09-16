@@ -4,5 +4,6 @@
     {
         Carro,
         Obstaculo
+        Moeda
     }
 }

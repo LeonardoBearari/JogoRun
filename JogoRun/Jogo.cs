@@ -40,6 +40,7 @@
                 var ob = new Elemento ();
                 ob.Tipo = TipoElemento.Obstaculo;
                 var faixa = rnd.Next(1,3);
+                ob.Variante = rnd.Next(0, 3);
                 ob.PosicaoX = PosicionaObjeto(faixa);
                 ob.PosicaoY = y_inicial;
                 obstaculos.Add(ob);
@@ -102,6 +103,93 @@
                 }
             }
         }
+
+        public List<Elemento> Moedas { get; set; }
+
+        public void IniciaJogo()
+        {
+            Carro = new Elemento();
+            Carro.Tipo = TipoElemento.Carro;
+            Carro.PosicaoX = PosicionaObjeto(1);
+            Carro.PosicaoY = YMaximo - 100;
+
+            Obstaculos = FabricaObstaculos(4, 20, 50);
+            Moedas = FabricaMoedas(3, 100, 200);
+            Pontuacao = 0;
+            Tempo = 0;
+        }
+
+        public List<Elemento> FabricaMoedas(int qtd, int dmin, int dmax)
+        {
+            var y_inicial = -50;
+            var rnd = new Random();
+            var moedas = new List<Elemento>();
+
+            for (int i = 0; i < qtd; i++)
+            {
+                y_inicial -= rnd.Next(dmin, dmax);
+                var moeda = new Elemento();
+                moeda.Tipo = TipoElemento.Moeda;
+                var faixa = rnd.Next(1, 3);
+                moeda.PosicaoX = PosicionaObjeto(faixa);
+                moeda.PosicaoY = y_inicial;
+                moedas.Add(moeda);
+            }
+            return moedas;
+        }
+
+        public void PontuarPorTempo()
+        {
+            Tempo++;
+            Pontuacao += 1;
+        }
+
+        public void PontuarObstaculosSuperados()
+        {
+            foreach (var ob in Obstaculos)
+            {
+                if (!ob.Contabilizado && ob.PosicaoY > Carro.PosicaoY)
+                {
+                    Pontuacao += 10;
+                    ob.Contabilizado = true;
+                }
+                if (ob.PosicaoY == 0)
+                {
+                    ob.Contabilizado = false; 
+                }
+            }
+        }
+
+        public bool ChecarColisaoMoeda()
+        {
+            foreach (var moeda in Moedas)
+            {
+                if (!moeda.Contabilizado &&
+                    ChecaFaixaElemento(Carro) == ChecaFaixaElemento(moeda) &&
+                    Math.Abs(Carro.PosicaoY - moeda.PosicaoY) < 30)
+                {
+                    Pontuacao += 25;
+                    moeda.Contabilizado = true;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void MovimentaMoedas()
+        {
+            foreach (var moeda in Moedas)
+            {
+                moeda.PosicaoY++;
+                if (moeda.PosicaoY > YMaximo)
+                {
+                    moeda.PosicaoY = 0;
+                    moeda.Contabilizado = false;
+                }
+            }
+        }
+
+
 
     }
 }

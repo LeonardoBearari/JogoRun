@@ -41,6 +41,7 @@ namespace JogoCorridaWinFormsApp
             {
                 var picOb = new PictureBox();
                 picOb.BackColor = Color.Transparent;
+                picOb.Size = new Size(94, 91);
                 picOb.BackgroundImage = Properties.Resources.obstaculo;
                 picOb.BackgroundImageLayout = ImageLayout.Stretch;
                 //picOb.Image = Properties.Resources.obstaculo;
@@ -63,7 +64,7 @@ namespace JogoCorridaWinFormsApp
                 }
                 i++;
             }
-            if ((DateTime.Now - tempoUltimaMocimentaca).Milliseconds > jogo.Velocidade)
+            if ((DateTime.Now - tempoUltimaMocimentaca).TotalMilliseconds > jogo.Velocidade)
             {
                 tempoUltimaMocimentaca = DateTime.Now;
                 jogo.MovimentaObstaculos();
@@ -77,15 +78,24 @@ namespace JogoCorridaWinFormsApp
 
         private void GameOver()
         {
-            TimerJogo.Enabled= false;
+            TimerJogo.Enabled = false;
+            picCarro.BackgroundImage = Properties.Resources.explosao; 
             TocarSomBatida();
-            Close();
+
+            var timerFechar = new System.Windows.Forms.Timer();
+            timerFechar.Interval = 800;
+            timerFechar.Tick += (s, e) =>
+            {
+                timerFechar.Stop();
+                Close();
+            };
+            timerFechar.Start();
         }
 
         private void TocarSomCorrida()
         {
             SoundPlayer sp = new SoundPlayer();
-            sp.SoundLocation = "D:\\LeonardoBS\\POE\\fundo.wav";
+            sp.SoundLocation = Path.Combine(Application.StartupPath, "fundo.wav");
             sp.PlayLooping();
         }
 

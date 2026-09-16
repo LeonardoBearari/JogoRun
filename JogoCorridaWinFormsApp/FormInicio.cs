@@ -39,7 +39,7 @@ namespace JogoCorridaWinFormsApp
 
         private void btnDificil_Click(object sender, EventArgs e)
         {
-            var jogo = new FormJogo("Fácil");
+            var jogo = new FormJogo("Difícil");
             jogo.ShowDialog();
         }
     }

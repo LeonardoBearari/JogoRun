@@ -31,10 +31,10 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormJogo));
             picCarro = new PictureBox();
-            picObstaculo = new PictureBox();
+            
             TimerJogo = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)picCarro).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picObstaculo).BeginInit();
+            
             SuspendLayout();
             // 
             // picCarro
@@ -70,7 +70,7 @@
             BackgroundImage = Properties.Resources.Pista;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(859, 872);
-            Controls.Add(picObstaculo);
+            
             Controls.Add(picCarro);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
@@ -80,14 +80,14 @@
             Load += Form1_Load;
             KeyDown += FormJogo_KeyDown;
             ((System.ComponentModel.ISupportInitialize)picCarro).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picObstaculo).EndInit();
+            
             ResumeLayout(false);
         }
 
         #endregion
 
         private PictureBox picCarro;
-        private PictureBox picObstaculo;
+        
         private System.Windows.Forms.Timer TimerJogo;
     }
 }
