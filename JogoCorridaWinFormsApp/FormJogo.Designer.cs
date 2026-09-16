@@ -70,7 +70,24 @@
             BackgroundImage = Properties.Resources.Pista;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(859, 872);
-            
+            //
+            // lblPontuacao
+            //
+            lblPontuacao = new Label();
+            lblPontuacao.AutoSize = false;
+            lblPontuacao.BackColor = Color.Transparent;
+            lblPontuacao.ForeColor = Color.White;
+            lblPontuacao.Font = new Font("Arial", 14, FontStyle.Bold);
+            lblPontuacao.TextAlign = ContentAlignment.MiddleRight;
+            lblPontuacao.Location = new Point(659, 15);   // canto superior direito, com margem
+            lblPontuacao.Size = new Size(180, 30);
+            lblPontuacao.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblPontuacao.Name = "lblPontuacao";
+            lblPontuacao.Text = "Pontos: 0";
+            lblPontuacao.TabIndex = 2;
+            Controls.Add(lblPontuacao);
+
+
             Controls.Add(picCarro);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
@@ -89,5 +106,7 @@
         private PictureBox picCarro;
         
         private System.Windows.Forms.Timer TimerJogo;
+
+        private Label lblPontuacao;
     }
 }

@@ -2,16 +2,17 @@
 {
     public class Elemento
     {
-       //atributos
-       public TipoElemento Tipo {  get; set; }
-       public int PosicaoX { get; set; }
-       public int PosicaoY {  get; set; }
-       public int Altura { get; set; }
-       public int Largura { get; set; }
-       
-       public void Movimentar(int x, int y)
+        public TipoElemento Tipo { get; set; }
+        public int PosicaoX { get; set; }
+        public int PosicaoY { get; set; }
+        public int Altura { get; set; }
+        public int Largura { get; set; }
+        public bool Contabilizado { get; set; }
+        public int Variante { get; set; }
+
+        public void Movimentar(int x, int y)
         {
-            PosicaoX = x; 
+            PosicaoX = x;
             PosicaoY = y;
         }
     }
